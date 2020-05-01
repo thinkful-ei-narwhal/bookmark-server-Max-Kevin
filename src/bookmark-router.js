@@ -36,14 +36,14 @@ bookmarkRouter
     /* Validate that user information is valid *//* Validate that user information is valid *//* Validate that user information is valid */
     /* Validate that user information is valid *//* Validate that user information is valid *//* Validate that user information is valid */
 
-    bookmarks.push({
+    const newBookmark = {
       id: id,
       rating: rating,
       title: title,
       description: description,
-    });
-
-    res.json(bookmarks);
+    };
+    bookmarks.push(newBookmark);
+    res.status(201).json(newBookmark);
   })
 
   bookmarkRouter
@@ -57,6 +57,6 @@ bookmarkRouter
       return bookmark.id === newId;
     });
     bookmarks.splice(deletedBookmark, 1);
-    res.send('Bookmark deleted successfully.');
+    res.status(204).send('Bookmark deleted successfully.');
   })
   module.exports = bookmarkRouter;
