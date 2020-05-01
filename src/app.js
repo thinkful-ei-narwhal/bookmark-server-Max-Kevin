@@ -8,6 +8,7 @@ const helmet = require('helmet');
 const { NODE_ENV } = require('./config');
 const apiToken = process.env.API_TOKEN;
 const bookmarkRouter = require('./bookmark-router');
+const logger = require('winston');
 
 const app = express();
 
