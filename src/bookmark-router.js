@@ -54,7 +54,7 @@ bookmarkRouter
   .delete((req, res) => {
     let newId  = req.params.id;
     let deletedBookmark = bookmarks.findIndex(bookmark => {
-      bookmark.id === newId;
+      return bookmark.id === newId;
     });
     bookmarks.splice(deletedBookmark, 1);
     res.send('Bookmark deleted successfully.');
