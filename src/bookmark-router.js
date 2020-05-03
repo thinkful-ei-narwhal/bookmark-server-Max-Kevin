@@ -49,7 +49,11 @@ bookmarkRouter
   bookmarkRouter
   .route('/bookmarks/:id')
   .get((req, res) => {
-    res.send('Bookmark about to be deleted');
+    let newID = req.params.id;
+    let foundIndex = bookmarks.findIndex(bookmark => {
+      return bookmark.id === newID;
+    });
+    res.json(bookmarks[foundIndex]);
   })
   .delete((req, res) => {
     let newId  = req.params.id;
