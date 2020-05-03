@@ -27,6 +27,10 @@ function validateBearerToken(req, res, next) {
   next()
 }
 
+app.get('/', (req, res) => {
+  res.send('Enter a request');
+});
+
 app.use(morgan(morganOption));
 app.use(helmet());
 app.use(cors());
